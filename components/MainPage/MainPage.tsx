@@ -9,25 +9,22 @@ const MainPage = observer(() => {
   const { globalStore } = useStores();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.Telegram?.WebApp) {
-      const tg = window.Telegram.WebApp;
+    if (typeof window !== "undefined") {
+      console.log("window:", window);
+      console.log("Telegram:", window.Telegram);
+      if (window.Telegram?.WebApp) {
+        const tg = window.Telegram.WebApp;
 
-      tg.MainButton.setText("Продолжить");
-      tg.MainButton.show();
+        console.log("initData:", tg.initData);
+        console.log("user:", tg.initDataUnsafe?.user?.username);
+        console.log("platform:", tg.platform);
 
-      const handleMainButtonClick = () => {
-        alert(
-          `Имя: ${globalStore.userName}, платформа: ${globalStore.platform}`,
-        );
-      };
-      tg.onEvent("mainButtonClicked", handleMainButtonClick);
-
-      return () => {
-        tg.offEvent("mainButtonClicked", handleMainButtonClick);
-      };
+        tg.MainButton.setText("Продолжить");
+        tg.MainButton.show();
+      } else {
+        console.log("Telegram.WebApp НЕ доступен");
+      }
     }
-
-
   }, []);
 
   return (
