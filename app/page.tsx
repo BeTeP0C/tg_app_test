@@ -1,3 +1,5 @@
+'use client'
+
 import MainPage from "@/components/MainPage/MainPage";
 import { useEffect, useState } from "react";
 
