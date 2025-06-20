@@ -38,3 +38,5 @@ const MainPage = observer(() => {
     </div>
   );
 });
+
+export default MainPage
