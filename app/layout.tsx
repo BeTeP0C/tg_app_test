@@ -1,6 +1,7 @@
+/* eslint-disable import/order */
+import Script from "next/script";
 import { StoreProvider } from "../common/stores/StoreProvider";
 import { AppProvider } from "./AppProvider";
-import Script from "next/script";
 
 type TRootLayout = {
   children: React.ReactNode;
@@ -14,7 +15,10 @@ const RootLayout = ({ children }: TRootLayout) => {
         <meta name="description" content="Что-то там" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <link rel="icon" href="/logo_only.svg" /> */}
-        <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
+        <Script
+          src="https://telegram.org/js/telegram-web-app.js"
+          strategy="beforeInteractive"
+        />
       </head>
       <body>
         <AppProvider>
