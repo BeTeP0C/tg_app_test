@@ -36,4 +36,4 @@ const MainPage = observer(() => {
   );
 });
 
-export default MainPage
+export default MainPage;
